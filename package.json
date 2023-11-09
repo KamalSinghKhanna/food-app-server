@@ -7,7 +7,7 @@
   "scripts": {
     "start": "SET NODE_ENV=production & node server.js",
     "dev": "SET NODE_ENV=development & nodemon server.js"
-}
+  }
 ,
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "nodemon": "^2.0.22",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
+    "path-to-regexp": "^6.2.1",
     "razorpay": "^2.9.2"
   }
 }
