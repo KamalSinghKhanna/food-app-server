@@ -1,4 +1,4 @@
-import express from "express";
+import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 import { connectPassport } from "./utils/Provider.js";
 import session from "express-session";
@@ -30,7 +30,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 app.use(
-  express.urlencoded({
+  urlencoded({
     extended: true,
   })
 );
@@ -43,11 +43,12 @@ app.use(
   })
 );
 
-// Passport Configuration
-connectPassport();
+app.use(passport.authenticate("session"));
 app.use(passport.initialize());
 app.use(passport.session());
 app.enable("trust proxy");
+
+connectPassport();
 
 // Importing Routes
 import userRoute from "./routes/user.js";
